@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,21 +19,25 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.gms.location.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
-
+import com.nucldev.simpleweatherlocator.netinteraction.WeatherFromNet;
+import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.Main;
+import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.Response;
 
 
 public class MainActivity extends AppCompatActivity {
 
     int PERMISSION_ID = 44;
     FusedLocationProviderClient mFusedLocationClient;
-    public static Double sLatitude;
-    public static Double sLongitude;
+    public static Double sLatitude = null;
+    public static Double sLongitude = null;
+    public static TextView sTextView;
+    public static Response sResponse;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        sTextView = findViewById(R.id.textView);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
     }
@@ -50,8 +55,11 @@ public class MainActivity extends AppCompatActivity {
                                     requestNewLocationData();
                                 }
                                 else {
+                                    if (sLongitude==null){
                                     sLatitude = location.getLatitude();
                                     sLongitude = location.getLongitude();
+                                    startService(new Intent(MainActivity.this, NetService.class));
+                                    }
                                     }
 
 
@@ -86,8 +94,11 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onLocationResult(LocationResult locationResult) {
             Location mLastLocation = locationResult.getLastLocation();
+            if (sLongitude==null){
             sLatitude = mLastLocation.getLatitude();
             sLongitude = mLastLocation.getLongitude();
+            startService(new Intent(MainActivity.this, NetService.class));
+            }
         }
     };
 
@@ -134,5 +145,15 @@ public class MainActivity extends AppCompatActivity {
         if (checkPermissions()) {
             getLastLocation();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 }

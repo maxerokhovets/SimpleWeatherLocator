@@ -3,6 +3,10 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
     defaultConfig {
         applicationId "com.nucldev.simpleweatherlocator"
         minSdkVersion 21
@@ -28,4 +32,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
     implementation group: 'com.google.android.gms', name: 'play-services-location', version: '17.0.0'
     implementation group: 'com.google.android.gms', name: 'play-services-tasks', version: '17.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.7.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.7.0'
 }
