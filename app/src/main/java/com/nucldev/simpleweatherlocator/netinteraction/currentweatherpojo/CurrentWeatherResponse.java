@@ -1,11 +1,12 @@
 package com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo;
 
+import androidx.annotation.NonNull;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
 
-public class Response{
+public class CurrentWeatherResponse {
 
 	@SerializedName("dt")
 	private int dt;
@@ -142,7 +143,7 @@ public class Response{
 	@Override
  	public String toString(){
 		return 
-			"Response{" + 
+			"CurrentWeatherResponse{" +
 			"dt = '" + dt + '\'' + 
 			",coord = '" + coord + '\'' + 
 			",timezone = '" + timezone + '\'' + 
@@ -157,4 +158,10 @@ public class Response{
 			",wind = '" + wind + '\'' + 
 			"}";
 		}
+
+	@NonNull
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		return super.clone();
+	}
 }

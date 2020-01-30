@@ -3,21 +3,21 @@ package com.nucldev.simpleweatherlocator.netinteraction;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class NetworkService {
-    private static NetworkService mInstance;
+public class WeatherApiService {
+    private static WeatherApiService mInstance;
     private static final String BASE_URL = "http://api.openweathermap.org/data/2.5/";
     private Retrofit mRetrofit;
 
-    private NetworkService() {
+    private WeatherApiService() {
         mRetrofit = new Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
 
-    public static NetworkService getInstance() {
+    public static WeatherApiService getInstance() {
         if (mInstance == null) {
-            mInstance = new NetworkService();
+            mInstance = new WeatherApiService();
         }
         return mInstance;
     }

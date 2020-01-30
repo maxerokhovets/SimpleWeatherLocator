@@ -11,6 +11,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Looper;
 import android.provider.Settings;
+import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
@@ -19,9 +20,8 @@ import androidx.core.app.ActivityCompat;
 import com.google.android.gms.location.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.nucldev.simpleweatherlocator.netinteraction.WeatherFromNet;
-import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.Main;
-import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.Response;
+import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
+import io.reactivex.Observable;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -31,7 +31,8 @@ public class MainActivity extends AppCompatActivity {
     public static Double sLatitude = null;
     public static Double sLongitude = null;
     public static TextView sTextView;
-    public static Response sResponse;
+    public static Observable<CurrentWeatherResponse> responseObservable;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +41,24 @@ public class MainActivity extends AppCompatActivity {
         sTextView = findViewById(R.id.textView);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
+        setTitle("TabHost");
+
+        TabHost tabHost = (TabHost) findViewById(R.id.tabHost);
+
+        tabHost.setup();
+
+        TabHost.TabSpec tabSpec = tabHost.newTabSpec("tag1");
+
+        tabSpec.setContent(R.id.linearLayout);
+        tabSpec.setIndicator("Today");
+        tabHost.addTab(tabSpec);
+
+        tabSpec = tabHost.newTabSpec("tag3");
+        tabSpec.setContent(R.id.linearLayout3);
+        tabSpec.setIndicator("Forecast");
+        tabHost.addTab(tabSpec);
+
+        tabHost.setCurrentTab(0);
     }
 
     @SuppressLint("MissingPermission")
