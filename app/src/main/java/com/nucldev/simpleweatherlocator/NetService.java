@@ -16,7 +16,7 @@ public class NetService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        WeatherFromNet weatherFromNet = new WeatherFromNet(MainActivity.sLatitude, MainActivity.sLongitude);
+        WeatherFromNet weatherFromNet = new WeatherFromNet(Main2Activity.sLatitude, Main2Activity.sLongitude);
         weatherFromNet.getWeather();
         stopSelf();
         return super.onStartCommand(intent, flags, startId);

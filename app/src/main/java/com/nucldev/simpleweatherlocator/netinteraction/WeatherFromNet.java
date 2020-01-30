@@ -1,7 +1,8 @@
 package com.nucldev.simpleweatherlocator.netinteraction;
 
 import androidx.annotation.NonNull;
-import com.nucldev.simpleweatherlocator.MainActivity;
+import com.nucldev.simpleweatherlocator.CurrentWeatherFragment;
+import com.nucldev.simpleweatherlocator.ForecastFragment;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
 import com.nucldev.simpleweatherlocator.netinteraction.forecastpojo.ForecastResponse;
 import retrofit2.Call;
@@ -10,6 +11,7 @@ import retrofit2.Callback;
 public class WeatherFromNet {
     private Double mLatitude;
     private Double mLongitude;
+
 
     public WeatherFromNet(Double latitude, Double longitude) {
         this.mLatitude = latitude;
@@ -26,13 +28,13 @@ public class WeatherFromNet {
                     @Override
                     public void onResponse(@NonNull Call<CurrentWeatherResponse> call, @NonNull retrofit2.Response<CurrentWeatherResponse> response) {
                         CurrentWeatherResponse response1= response.body();
-//                        MainActivity.sTextView.setText(response1.toString());
+                        CurrentWeatherFragment.tv.setText(response1.toString());
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<CurrentWeatherResponse> call, @NonNull Throwable t) {
                         //todo сделать toast
-                        MainActivity.sTextView.append("Error occurred while getting request!"+"\n");
+//                        Main2Activity.sTextView.append("Error occurred while getting request!"+"\n");
                     }
                 });
 
@@ -43,13 +45,14 @@ public class WeatherFromNet {
                     @Override
                     public void onResponse(@NonNull Call<ForecastResponse> call, @NonNull retrofit2.Response<ForecastResponse> response) {
                         ForecastResponse response1= response.body();
-                        MainActivity.sTextView.setText(response1.toString());
+                        ForecastFragment.tv.setText(response1.toString());
                     }
 
                     @Override
                     public void onFailure(@NonNull Call<ForecastResponse> call, @NonNull Throwable t) {
                         //todo сделать toast
-                        MainActivity.sTextView.append("Error occurred while getting request!"+"\n");
+//                        Jбновление из фэйлд
+//                        Main2Activity.sTextView.append("Error occurred while getting request!"+"\n");
                     }
                 });
     }
