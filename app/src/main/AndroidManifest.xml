@@ -14,7 +14,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <activity
-                android:name=".Main2Activity"
+                android:name=".components.Main2Activity"
                 android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -24,7 +24,7 @@
         </activity>
 
         <service
-                android:name=".NetService"
+                android:name=".components.NetService"
                 android:enabled="true"
                 android:exported="true">
         </service>

@@ -6,8 +6,8 @@ import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
-import com.nucldev.simpleweatherlocator.CurrentWeatherFragment;
-import com.nucldev.simpleweatherlocator.ForecastFragment;
+import com.nucldev.simpleweatherlocator.components.CurrentWeatherFragment;
+import com.nucldev.simpleweatherlocator.components.ForecastFragment;
 import com.nucldev.simpleweatherlocator.R;
 
 /**

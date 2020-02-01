@@ -1,4 +1,4 @@
-package com.nucldev.simpleweatherlocator;
+package com.nucldev.simpleweatherlocator.components;
 
 import android.app.Service;
 import android.content.Intent;

@@ -1,4 +1,4 @@
-package com.nucldev.simpleweatherlocator;
+package com.nucldev.simpleweatherlocator.components;
 
 
 import android.Manifest;
@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
+import com.nucldev.simpleweatherlocator.R;
 import com.nucldev.simpleweatherlocator.ui.main.SectionsPagerAdapter;
 
 
