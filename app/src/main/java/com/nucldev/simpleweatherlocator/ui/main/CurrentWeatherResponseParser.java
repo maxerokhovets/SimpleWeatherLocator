@@ -9,11 +9,11 @@ import com.nucldev.simpleweatherlocator.ui.main.utils.Rounding;
 import java.sql.RowId;
 import java.util.List;
 
-public class CurrentWeatherResponseConverter {
+public class CurrentWeatherResponseParser {
     private CurrentWeatherResponse mResponse;
     private String mCurrentWeatherMessage;
 
-    public CurrentWeatherResponseConverter(CurrentWeatherResponse response) {
+    public CurrentWeatherResponseParser(CurrentWeatherResponse response) {
         this.mResponse = response;
     }
 

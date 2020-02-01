@@ -1,10 +1,11 @@
 package com.nucldev.simpleweatherlocator.netinteraction;
 
 import androidx.annotation.NonNull;
-import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseConverter;
+import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
 import com.nucldev.simpleweatherlocator.components.ForecastFragment;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
 import com.nucldev.simpleweatherlocator.netinteraction.forecastpojo.ForecastResponse;
+import com.nucldev.simpleweatherlocator.ui.main.ForecastResponseParser;
 import retrofit2.Call;
 import retrofit2.Callback;
 
@@ -28,7 +29,7 @@ public class WeatherFromNet {
                     @Override
                     public void onResponse(@NonNull Call<CurrentWeatherResponse> call, @NonNull retrofit2.Response<CurrentWeatherResponse> response) {
                         CurrentWeatherResponse response1= response.body();
-                        CurrentWeatherResponseConverter parser = new CurrentWeatherResponseConverter(response1);
+                        CurrentWeatherResponseParser parser = new CurrentWeatherResponseParser(response1);
                         parser.doParse();
                     }
 
@@ -46,7 +47,8 @@ public class WeatherFromNet {
                     @Override
                     public void onResponse(@NonNull Call<ForecastResponse> call, @NonNull retrofit2.Response<ForecastResponse> response) {
                         ForecastResponse response1= response.body();
-                        ForecastFragment.tv.setText(response1.toString());
+                        ForecastResponseParser parser = new ForecastResponseParser(response1);
+                        parser.doParse();
                     }
 
                     @Override
