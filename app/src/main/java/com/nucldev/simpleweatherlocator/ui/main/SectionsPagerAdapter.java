@@ -32,7 +32,7 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
         Fragment fragment = null;
         switch (position){
             case 0:
-                fragment = new CurrentWeatherFragment();
+                fragment = new CurrentWeatherFragment(this.mContext);
                 break;
             case 1:
                 fragment = new ForecastFragment(this.mContext);

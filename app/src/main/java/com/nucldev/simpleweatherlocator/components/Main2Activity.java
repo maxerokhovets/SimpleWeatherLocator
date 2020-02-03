@@ -34,6 +34,7 @@ public class Main2Activity extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
     public static Double sLatitude = null;
     public static Double sLongitude = null;
+    //todo two location turn on activity
 
 
 
