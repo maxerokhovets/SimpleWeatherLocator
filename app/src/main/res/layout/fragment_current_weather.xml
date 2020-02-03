@@ -30,7 +30,7 @@
     <TextView
             android:layout_width="164dp"
             android:layout_height="93dp"
-            android:id="@+id/temperatureTextView" android:textColor="#000000"
+            android:id="@+id/forecastTemperatureTextView" android:textColor="#000000"
             android:textSize="50sp" android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="138dp" app:layout_constraintStart_toStartOf="parent"

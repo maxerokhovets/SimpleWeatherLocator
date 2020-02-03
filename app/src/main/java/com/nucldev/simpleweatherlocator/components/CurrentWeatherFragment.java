@@ -27,7 +27,7 @@ public class CurrentWeatherFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_current_weather, container, false);
         sLocationTextView = view.findViewById(R.id.locationTextView);
-        sTemperatureTextView = view.findViewById(R.id.temperatureTextView);
+        sTemperatureTextView = view.findViewById(R.id.forecastTemperatureTextView);
         sWeatherTextView = view.findViewById(R.id.weatherTextView);
         sWindTextView = view.findViewById(R.id.windTextView);
         sPressureTextView = view.findViewById(R.id.pressureTextView);

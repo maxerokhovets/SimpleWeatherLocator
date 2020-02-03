@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
+             xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent"
              android:layout_height="wrap_content">
 
     <TextView
             android:layout_width="match_parent"
-            android:layout_height="200dp" android:id="@+id/forecastItemTextView"/>
+            android:layout_height="150dp" android:id="@+id/descriptionTextView" android:textSize="20sp"
+            android:textAllCaps="false" android:textColor="#000000" android:textAlignment="viewStart"
+            android:paddingTop="30dp" android:paddingStart="150dp"/>
+    <ImageView
+            android:layout_width="131dp"
+            android:layout_height="150dp"
+            android:id="@+id/weatherImageView"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/forecastTemperatureTextView"
+            android:textAlignment="viewEnd"
+            android:textColor="#000000" android:textSize="36sp" android:paddingEnd="20dp" android:paddingTop="40dp"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" android:id="@+id/dateTextView" android:textAlignment="viewEnd"
+            android:textColor="#8A8A8A" android:paddingEnd="15dp" android:paddingTop="5dp"/>
 </FrameLayout>

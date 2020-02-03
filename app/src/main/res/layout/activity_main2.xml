@@ -26,9 +26,9 @@
                 android:id="@+id/tabs"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="#FFFFFF" app:tabTextColor="#000000"
+                android:background="#2D84D1" app:tabTextColor="#FFFFFF"
                 app:tabTextAppearance="@style/TextAppearance.AppCompat.Body2" app:tabPaddingEnd="12dp"
-                app:tabPaddingStart="12dp"/>
+                app:tabPaddingStart="12dp" app:tabIndicatorColor="#FFFFFF"/>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.viewpager.widget.ViewPager

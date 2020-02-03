@@ -6,7 +6,6 @@ import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.Weathe
 import com.nucldev.simpleweatherlocator.ui.main.utils.AzimuthToSideOfTheWorldConverter;
 import com.nucldev.simpleweatherlocator.ui.main.utils.Rounding;
 
-import java.sql.RowId;
 import java.util.List;
 
 public class CurrentWeatherResponseParser {
@@ -18,6 +17,9 @@ public class CurrentWeatherResponseParser {
     }
 
     public void doParse(){
+        // todo если не вернетя название населенного пункта?????
+//        todo NPE!!!!!!!
+//        todo strem style!!!
         CurrentWeatherFragment.sLocationTextView.setText(this.mResponse.getName());
         int temperature = (int) Rounding.mathRounding(this.mResponse.getMain().getTemp()-273.15, 0);
         String sTemperature = Integer.toString(temperature);

@@ -1,10 +1,9 @@
 package com.nucldev.simpleweatherlocator.netinteraction;
 
 import androidx.annotation.NonNull;
-import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
-import com.nucldev.simpleweatherlocator.components.ForecastFragment;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
 import com.nucldev.simpleweatherlocator.netinteraction.forecastpojo.ForecastResponse;
+import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
 import com.nucldev.simpleweatherlocator.ui.main.ForecastResponseParser;
 import retrofit2.Call;
 import retrofit2.Callback;
