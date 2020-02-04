@@ -1,7 +1,7 @@
 package com.nucldev.simpleweatherlocator.ui.main;
 
-import android.content.Context;
 import android.graphics.Color;
+import com.nucldev.simpleweatherlocator.R;
 import com.nucldev.simpleweatherlocator.components.CurrentWeatherFragment;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.WeatherItem;
@@ -19,6 +19,10 @@ public class CurrentWeatherResponseParser {
     }
 
     public void doParse(){
+        CurrentWeatherFragment.sWindImageView.setImageResource(R.drawable.wind);
+        CurrentWeatherFragment.sWindDirectionImageView.setImageResource(R.drawable.wind_direction);
+        CurrentWeatherFragment.sPressureImageView.setImageResource(R.drawable.pressure);
+        CurrentWeatherFragment.sHumidityImageView.setImageResource(R.drawable.humidity);
         sCurrentWeatherMessage = "Current weather in ";
         CurrentWeatherFragment.sLocationTextView.setText(this.mResponse.getName());
         sCurrentWeatherMessage += this.mResponse.getName()+":\n";

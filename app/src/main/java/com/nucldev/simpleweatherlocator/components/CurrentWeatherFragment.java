@@ -22,6 +22,10 @@ public class CurrentWeatherFragment extends Fragment {
     public static TextView sHumidityTextView;
     public static ImageView sCurrentWeatherImage;
     public static TextView sWindDirectionTextView;
+    public static ImageView sWindImageView;
+    public static ImageView sWindDirectionImageView;
+    public static ImageView sPressureImageView;
+    public static ImageView sHumidityImageView;
     public static Context sContext;
 
 
@@ -40,6 +44,10 @@ public class CurrentWeatherFragment extends Fragment {
         sHumidityTextView = view.findViewById(R.id.humidityTextView);
         sCurrentWeatherImage = view.findViewById(R.id.currentWeatherImageView);
         sWindDirectionTextView = view.findViewById(R.id.windDirectionTextView);
+        sWindImageView = view.findViewById(R.id.windImageView);
+        sWindDirectionImageView = view.findViewById(R.id.windDirectionImageView);
+        sPressureImageView = view.findViewById(R.id.pressureImageView);
+        sHumidityImageView = view.findViewById(R.id.humidityImageView);
         return view;
     }
 
