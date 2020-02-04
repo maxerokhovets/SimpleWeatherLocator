@@ -25,6 +25,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nucldev.simpleweatherlocator.R;
+import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
 import com.nucldev.simpleweatherlocator.ui.main.SectionsPagerAdapter;
 
 
@@ -55,8 +56,11 @@ public class Main2Activity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent sendIntent = new Intent();
+                sendIntent.setAction(Intent.ACTION_SEND);
+                sendIntent.putExtra(Intent.EXTRA_TEXT, CurrentWeatherResponseParser.sCurrentWeatherMessage);
+                sendIntent.setType("text/plain");
+                startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
             }
         });
     }
