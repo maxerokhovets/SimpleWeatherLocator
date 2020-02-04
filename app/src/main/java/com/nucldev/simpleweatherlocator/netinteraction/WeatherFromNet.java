@@ -1,6 +1,8 @@
 package com.nucldev.simpleweatherlocator.netinteraction;
 
+import android.widget.Toast;
 import androidx.annotation.NonNull;
+import com.nucldev.simpleweatherlocator.components.CurrentWeatherFragment;
 import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
 import com.nucldev.simpleweatherlocator.netinteraction.forecastpojo.ForecastResponse;
 import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
@@ -34,8 +36,7 @@ public class WeatherFromNet {
 
                     @Override
                     public void onFailure(@NonNull Call<CurrentWeatherResponse> call, @NonNull Throwable t) {
-                        //todo сделать toast
-//                        Main2Activity.sTextView.append("Error occurred while getting request!"+"\n");
+                        Toast.makeText(CurrentWeatherFragment.sContext, "Failed to get data!", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -52,9 +53,7 @@ public class WeatherFromNet {
 
                     @Override
                     public void onFailure(@NonNull Call<ForecastResponse> call, @NonNull Throwable t) {
-                        //todo сделать toast
-//                        Jбновление из фэйлд
-//                        Main2Activity.sTextView.append("Error occurred while getting request!"+"\n");
+//                        Toast.makeText(CurrentWeatherFragment.sContext, "Failed to get data!", Toast.LENGTH_LONG).show();
                     }
                 });
     }
