@@ -52,7 +52,6 @@ public class Main2Activity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
         FloatingActionButton fab = findViewById(R.id.fab);
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,6 +60,17 @@ public class Main2Activity extends AppCompatActivity {
                 sendIntent.putExtra(Intent.EXTRA_TEXT, CurrentWeatherResponseParser.sCurrentWeatherMessage);
                 sendIntent.setType("text/plain");
                 startActivity(Intent.createChooser(sendIntent, getResources().getText(R.string.send_to)));
+            }
+        });
+
+        FloatingActionButton fab2 = findViewById(R.id.fab2);
+        fab2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onPause();
+                onStop();
+                onStart();
+                onResume();
             }
         });
     }

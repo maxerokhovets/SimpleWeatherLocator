@@ -7,6 +7,13 @@
         android:layout_height="match_parent"
         tools:context=".components.Main2Activity">
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            app:srcCompat="@android:drawable/ic_popup_sync" app:backgroundTint="#B71C1C"
+            android:layout_marginEnd="80dp" android:layout_marginBottom="16dp"/>
     <com.google.android.material.appbar.AppBarLayout
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
@@ -36,7 +43,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"
             android:layout_width="wrap_content"
