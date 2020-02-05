@@ -45,7 +45,7 @@ public class WeatherFromNet {
 
                     @Override
                     public void onFailure(@NonNull Call<CurrentWeatherResponse> call, @NonNull Throwable t) {
-                        Toast.makeText(CurrentWeatherFragment.sContext, "Error receiving data", Toast.LENGTH_LONG).show();
+                        Toast.makeText(CurrentWeatherFragment.sContext, "Data receiving error", Toast.LENGTH_LONG).show();
                     }
                 });
 
@@ -68,7 +68,7 @@ public class WeatherFromNet {
 
                     @Override
                     public void onFailure(@NonNull Call<ForecastResponse> call, @NonNull Throwable t) {
-//                        Toast.makeText(CurrentWeatherFragment.sContext, "Error receiving data", Toast.LENGTH_LONG).show();
+//                        Toast.makeText(CurrentWeatherFragment.sContext, "Data receiving error", Toast.LENGTH_LONG).show();
                     }
                 });
     }
