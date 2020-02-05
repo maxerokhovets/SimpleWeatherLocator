@@ -2,6 +2,7 @@ package com.nucldev.simpleweatherlocator.components;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +10,10 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.fragment.app.Fragment;
+import com.google.gson.Gson;
 import com.nucldev.simpleweatherlocator.R;
+import com.nucldev.simpleweatherlocator.netinteraction.currentweatherpojo.CurrentWeatherResponse;
+import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
 
 
 public class CurrentWeatherFragment extends Fragment {
@@ -48,6 +52,15 @@ public class CurrentWeatherFragment extends Fragment {
         sWindDirectionImageView = view.findViewById(R.id.windDirectionImageView);
         sPressureImageView = view.findViewById(R.id.pressureImageView);
         sHumidityImageView = view.findViewById(R.id.humidityImageView);
+        Cursor query = Main2Activity.sCurrentDatabase.query("str",new String[]{"rString"}, null,null,null,null, null);
+        String jsonResponse = "";
+        if(query.moveToFirst()){
+            jsonResponse = query.getString(0);
+            System.out.println(jsonResponse);
+            Gson gson = new Gson();
+            CurrentWeatherResponse cwr = gson.fromJson(jsonResponse, CurrentWeatherResponse.class);
+            new CurrentWeatherResponseParser(cwr).doParse();
+        }
         return view;
     }
 

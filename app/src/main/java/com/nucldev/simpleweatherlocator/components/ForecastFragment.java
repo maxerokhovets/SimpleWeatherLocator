@@ -2,6 +2,7 @@ package com.nucldev.simpleweatherlocator.components;
 
 
 import android.content.Context;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,8 +10,11 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+import com.google.gson.Gson;
 import com.nucldev.simpleweatherlocator.R;
+import com.nucldev.simpleweatherlocator.netinteraction.forecastpojo.ForecastResponse;
 import com.nucldev.simpleweatherlocator.ui.main.ForecastRecyclerViewAdapter;
+import com.nucldev.simpleweatherlocator.ui.main.ForecastResponseParser;
 
 
 /**
@@ -35,7 +39,15 @@ public class ForecastFragment extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this.context);
         sRecyclerView.setLayoutManager(linearLayoutManager);
         sRecyclerView.setHasFixedSize(true);
-
+        Cursor query = Main2Activity.sForecastDatabase.query("str",new String[]{"rString"}, null,null,null,null, null);
+        String jsonResponse = "";
+        if(query.moveToFirst()){
+            jsonResponse = query.getString(0);
+            System.out.println(jsonResponse);
+            Gson gson = new Gson();
+            ForecastResponse fr = gson.fromJson(jsonResponse, ForecastResponse.class);
+            new ForecastResponseParser(fr).doParse();
+        }
         return view;
     }
 

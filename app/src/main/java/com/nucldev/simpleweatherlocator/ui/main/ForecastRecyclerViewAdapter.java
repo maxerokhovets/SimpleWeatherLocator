@@ -2,8 +2,6 @@ package com.nucldev.simpleweatherlocator.ui.main;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,10 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.nucldev.simpleweatherlocator.R;
-import com.nucldev.simpleweatherlocator.components.Main2Activity;
-
-import java.io.File;
-import java.nio.file.Path;
 
 
 public class ForecastRecyclerViewAdapter extends RecyclerView.Adapter<ForecastRecyclerViewAdapter.ForecastViewHolder> {

@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.database.sqlite.SQLiteDatabase;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -22,7 +23,6 @@ import com.google.android.gms.location.*;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 import com.nucldev.simpleweatherlocator.R;
 import com.nucldev.simpleweatherlocator.ui.main.CurrentWeatherResponseParser;
@@ -35,6 +35,8 @@ public class Main2Activity extends AppCompatActivity {
     FusedLocationProviderClient mFusedLocationClient;
     public static Double sLatitude = null;
     public static Double sLongitude = null;
+    public static SQLiteDatabase sCurrentDatabase;
+    public static SQLiteDatabase sForecastDatabase;
     //todo two location turn on activity
 
 
@@ -46,6 +48,10 @@ public class Main2Activity extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
+        sCurrentDatabase = getBaseContext().openOrCreateDatabase("current.db", MODE_PRIVATE, null);
+        sCurrentDatabase.execSQL("CREATE TABLE IF NOT EXISTS str(rString TEXT)");
+        sForecastDatabase = getBaseContext().openOrCreateDatabase("forecast.db", MODE_PRIVATE, null);
+        sForecastDatabase.execSQL("CREATE TABLE IF NOT EXISTS str(rString TEXT)");
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
         ViewPager viewPager = findViewById(R.id.view_pager);
         viewPager.setAdapter(sectionsPagerAdapter);
@@ -180,15 +186,7 @@ public class Main2Activity extends AppCompatActivity {
         }
         if(sLatitude!=null & sLongitude!=null)
         startService(new Intent(this,NetService.class));
+
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-    }
 }
