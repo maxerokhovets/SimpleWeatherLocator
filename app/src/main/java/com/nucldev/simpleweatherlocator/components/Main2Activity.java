@@ -37,7 +37,7 @@ public class Main2Activity extends AppCompatActivity {
     public static Double sLongitude = null;
     public static SQLiteDatabase sCurrentDatabase;
     public static SQLiteDatabase sForecastDatabase;
-    //todo two location turn on activity
+
 
 
 

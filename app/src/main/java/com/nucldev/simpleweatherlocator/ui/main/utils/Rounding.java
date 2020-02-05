@@ -2,7 +2,6 @@ package com.nucldev.simpleweatherlocator.ui.main.utils;
 
 public class Rounding {
 
-    //todo округление отрицательных чисел
     public static double floorRounding(double x, int n){
         double m = Math.pow(10, n);
         x= Math.floor(x*m)/m;
@@ -16,12 +15,18 @@ public class Rounding {
     }
 
     public static double mathRounding(double x, int n){
-        int m = (int) ( Math.pow(10, n)*x);
-        int m1 = (int)(Math.pow(10, n+1)*x);
+        double d = Math.abs(x);
+        int m = (int) ( Math.pow(10, n)*d);
+        int m1 = (int)(Math.pow(10, n+1)*d);
+        double y;
         if(m1-m*10>=5)
-            return Rounding.ceilRounding(x, n);
+            y= Rounding.ceilRounding(d, n);
         else
-            return Rounding.floorRounding(x, n);
+            y= Rounding.floorRounding(d, n);
+        if(x<0)
+            return -1*y;
+        else
+            return y;
     }
 
     public static double bankRounding(double x, int n) {
