@@ -39,7 +39,7 @@ public class WeatherFromNet {
                         String responseToString = gson.toJson(response1, CurrentWeatherResponse.class);
                         ContentValues cv = new ContentValues();
                         cv.put("rString",responseToString);
-                        Main2Activity.sCurrentDatabase.delete("str","rString",null);
+                        Main2Activity.sCurrentDatabase.execSQL("delete from str");
                         Main2Activity.sCurrentDatabase.insert("str", null, cv);
                     }
 
@@ -62,7 +62,7 @@ public class WeatherFromNet {
                         String responseToString = gson.toJson(response1, ForecastResponse.class);
                         ContentValues cv = new ContentValues();
                         cv.put("rString",responseToString);
-                        Main2Activity.sForecastDatabase.delete("str","rString",null);
+                        Main2Activity.sForecastDatabase.execSQL("delete from str");
                         Main2Activity.sForecastDatabase.insert("str", null, cv);
                     }
 
