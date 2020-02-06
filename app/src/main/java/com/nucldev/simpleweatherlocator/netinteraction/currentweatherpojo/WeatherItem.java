@@ -16,7 +16,7 @@ public class WeatherItem{
 	private String main;
 
 	@SerializedName("id")
-	private int id;
+	private long id;
 
 	public void setIcon(String icon){
 		this.icon = icon;
@@ -46,7 +46,7 @@ public class WeatherItem{
 		this.id = id;
 	}
 
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

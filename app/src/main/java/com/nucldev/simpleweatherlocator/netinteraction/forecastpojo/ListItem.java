@@ -7,7 +7,7 @@ import java.util.List;
 public class ListItem{
 
 	@SerializedName("dt")
-	private int dt;
+	private long dt;
 
 	@SerializedName("rain")
 	private Rain rain;
@@ -37,7 +37,7 @@ public class ListItem{
 		this.dt = dt;
 	}
 
-	public int getDt(){
+	public long getDt(){
 		return dt;
 	}
 

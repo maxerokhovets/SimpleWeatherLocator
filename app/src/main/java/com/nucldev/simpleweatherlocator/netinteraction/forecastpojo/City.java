@@ -12,19 +12,19 @@ public class City{
 	private Coord coord;
 
 	@SerializedName("sunrise")
-	private int sunrise;
+	private long sunrise;
 
 	@SerializedName("timezone")
-	private int timezone;
+	private long timezone;
 
 	@SerializedName("sunset")
-	private int sunset;
+	private long sunset;
 
 	@SerializedName("name")
 	private String name;
 
 	@SerializedName("id")
-	private int id;
+	private long id;
 
 	public void setCountry(String country){
 		this.country = country;
@@ -46,7 +46,7 @@ public class City{
 		this.sunrise = sunrise;
 	}
 
-	public int getSunrise(){
+	public long getSunrise(){
 		return sunrise;
 	}
 
@@ -54,7 +54,7 @@ public class City{
 		this.timezone = timezone;
 	}
 
-	public int getTimezone(){
+	public long getTimezone(){
 		return timezone;
 	}
 
@@ -62,7 +62,7 @@ public class City{
 		this.sunset = sunset;
 	}
 
-	public int getSunset(){
+	public long getSunset(){
 		return sunset;
 	}
 
@@ -78,7 +78,7 @@ public class City{
 		this.id = id;
 	}
 
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

@@ -1,9 +1,9 @@
 package com.nucldev.simpleweatherlocator.ui.main.utils;
 
 public class AzimuthToSideOfTheWorldConverter {
-    private int mAzimuth;
+    private double mAzimuth;
 
-    public AzimuthToSideOfTheWorldConverter(int mAzimuth) {
+    public AzimuthToSideOfTheWorldConverter(double mAzimuth) {
         this.mAzimuth = mAzimuth;
     }
 

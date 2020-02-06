@@ -13,16 +13,16 @@ public class Main{
 	private double tempMin;
 
 	@SerializedName("grnd_level")
-	private int grndLevel;
+	private double grndLevel;
 
 	@SerializedName("humidity")
-	private int humidity;
+	private double humidity;
 
 	@SerializedName("pressure")
-	private int pressure;
+	private double pressure;
 
 	@SerializedName("sea_level")
-	private int seaLevel;
+	private double seaLevel;
 
 	@SerializedName("feels_like")
 	private double feelsLike;
@@ -50,7 +50,7 @@ public class Main{
 		this.grndLevel = grndLevel;
 	}
 
-	public int getGrndLevel(){
+	public double getGrndLevel(){
 		return grndLevel;
 	}
 
@@ -58,7 +58,7 @@ public class Main{
 		this.humidity = humidity;
 	}
 
-	public int getHumidity(){
+	public double getHumidity(){
 		return humidity;
 	}
 
@@ -66,7 +66,7 @@ public class Main{
 		this.pressure = pressure;
 	}
 
-	public int getPressure(){
+	public double getPressure(){
 		return pressure;
 	}
 
@@ -74,7 +74,7 @@ public class Main{
 		this.seaLevel = seaLevel;
 	}
 
-	public int getSeaLevel(){
+	public double getSeaLevel(){
 		return seaLevel;
 	}
 

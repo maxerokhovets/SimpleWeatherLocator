@@ -9,13 +9,13 @@ import java.util.List;
 public class CurrentWeatherResponse {
 
 	@SerializedName("dt")
-	private int dt;
+	private long dt;
 
 	@SerializedName("coord")
 	private Coord coord;
 
 	@SerializedName("timezone")
-	private int timezone;
+	private long timezone;
 
 	@SerializedName("weather")
 	private List<WeatherItem> weather;
@@ -33,7 +33,7 @@ public class CurrentWeatherResponse {
 	private Clouds clouds;
 
 	@SerializedName("id")
-	private int id;
+	private long id;
 
 	@SerializedName("sys")
 	private Sys sys;
@@ -48,7 +48,7 @@ public class CurrentWeatherResponse {
 		this.dt = dt;
 	}
 
-	public int getDt(){
+	public long getDt(){
 		return dt;
 	}
 
@@ -64,7 +64,7 @@ public class CurrentWeatherResponse {
 		this.timezone = timezone;
 	}
 
-	public int getTimezone(){
+	public long getTimezone(){
 		return timezone;
 	}
 
@@ -112,7 +112,7 @@ public class CurrentWeatherResponse {
 		this.id = id;
 	}
 
-	public int getId(){
+	public long getId(){
 		return id;
 	}
 

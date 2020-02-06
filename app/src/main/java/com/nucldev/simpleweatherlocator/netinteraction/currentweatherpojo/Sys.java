@@ -10,10 +10,10 @@ public class Sys{
 	private String country;
 
 	@SerializedName("sunrise")
-	private int sunrise;
+	private long sunrise;
 
 	@SerializedName("sunset")
-	private int sunset;
+	private long sunset;
 
 	public void setCountry(String country){
 		this.country = country;
@@ -27,7 +27,7 @@ public class Sys{
 		this.sunrise = sunrise;
 	}
 
-	public int getSunrise(){
+	public long getSunrise(){
 		return sunrise;
 	}
 
@@ -35,7 +35,7 @@ public class Sys{
 		this.sunset = sunset;
 	}
 
-	public int getSunset(){
+	public long getSunset(){
 		return sunset;
 	}
 
