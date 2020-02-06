@@ -24,8 +24,8 @@ public class WeatherFromNet {
     }
 
     public void getWeather(){
-        String url = "weather?APPID=53c0da54be235480161da61705a6c37d&lat="+this.mLatitude+"&lon="+this.mLongitude;
-        String url1 = "forecast?APPID=53c0da54be235480161da61705a6c37d&lat="+this.mLatitude+"&lon="+this.mLongitude;
+        String url = "weather?APPID=a9c23a4b5e461f2d05d4b4b540a0e6ad&lat="+this.mLatitude+"&lon="+this.mLongitude;
+        String url1 = "forecast?APPID=a9c23a4b5e461f2d05d4b4b540a0e6ad&lat="+this.mLatitude+"&lon="+this.mLongitude;
         WeatherApiService.getInstance()
                 .getOpenWeatherApi()
                 .getWeatherForCoordinates(url)
